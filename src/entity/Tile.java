@@ -1,7 +1,5 @@
 package entity;
-
 import java.awt.Graphics2D;
-
 import main.GamePanel;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -19,14 +17,17 @@ public class Tile{
         if (tileNum == 1) {
             collision = true;
         }
+        this.tileImage = tileImage(tileNum);
+    }
 
+    private BufferedImage tileImage(int tileNum) {
         try {
-            if (tileNum >= 1){
-                tileImage = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tile" + tileNum + ".png"));
-            }
+            BufferedImage img = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tile" + tileNum + ".png"));
+            if (img == null) return null;
+            return img;
         } catch (IOException | IllegalArgumentException e) {
-            tileImage = null;
             System.out.println("Error loading tile image: " + e.getMessage());
+            return null;
         }
     }
 
@@ -64,6 +65,10 @@ public class Tile{
 
     public void setCollision(boolean isCollidable) {
         this.collision = isCollidable;
+    }
+
+    public void getTileImage(BufferedImage tileImage) {
+        this.tileImage = tileImage;
     }
 
 }

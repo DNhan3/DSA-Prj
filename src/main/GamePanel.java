@@ -3,31 +3,34 @@ package main;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import java.awt.Toolkit;
 
-import inGameEntity.MainCharacter;
+import inGameEntity.Player;
 import utils.CollisionChecker;
 import utils.KeyHandler;
-import utils.MouseTrack;
+import utils.ProjectileManager;
+import utils.CoordinateManager;
+import utils.CrepsManager;
+import utils.ScreenManagement;
 import utils.TileMangement;
 
 public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
 
-    public KeyHandler keyHandler = new KeyHandler();
-    public MouseTrack mouseTrack = new MouseTrack();
-    public TileMangement tileM = new TileMangement(this);
-    public MainCharacter mainCharacter = MainCharacter.getInstance(this);
-    public CollisionChecker collisionChecker = new CollisionChecker(this);
-
-    public final int FPS = 60;
-
-    public final int originalTileSize = 16;
-    public final int tileSize = originalTileSize * 4;
+    public KeyHandler keyHandler = KeyHandler.getInstance();
+    public CoordinateManager mouseTrack = CoordinateManager.getInstance();
+    public ScreenManagement screenManagement = ScreenManagement.getInstance(this);
+    public TileMangement tileM = TileMangement.getInstance(this);
+    public Player mainCharacter = Player.getInstance(this);
+    public CollisionChecker collisionChecker = CollisionChecker.getInstance(this);
+    public CrepsManager crepsManager = CrepsManager.getInstance(this);
+    public ProjectileManager projectileManager = ProjectileManager.getInstance();
+    
+    public final int FPS = 30;
+    
+    public final int originalTileSize = 32;
+    public final int tileSize = originalTileSize*2;
     public final int maxScreenCol = 20;
     public final int maxScreenRow = 16;
     public final int screenWidth = tileSize * maxScreenCol;
@@ -68,22 +71,20 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
+        screenManagement.update();
         mainCharacter.update(keyHandler);
+        crepsManager.updateCreps();
+        projectileManager.updateProjectiles();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Image backgroundImg;
-        try {
-            backgroundImg = ImageIO.read(getClass().getResourceAsStream("/res/background.png"));
-        } catch (IOException | IllegalArgumentException e) {
-            backgroundImg = null;
-        }
-
-        g2.drawImage(backgroundImg, 0, 0, screenWidth, screenHeight, null);
         tileM.draw(g2);
         mainCharacter.draw(g2);
+        crepsManager.drawCreps(g2);
+        projectileManager.drawProjectiles(g2);
+        Toolkit.getDefaultToolkit().sync();
         g2.dispose();
     }
 

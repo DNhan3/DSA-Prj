@@ -3,92 +3,67 @@ package entity;
 import main.GamePanel;
 import java.awt.Rectangle;
 
-
 public class Entity {
     public GamePanel gp;
-    private int worldX, worldY;      // World coordinates
-    private int screenX, screenY;    // Screen coordinates
+    public int worldX, worldY; // World coordinates
+    private int width, height;
+    private int direction = 0; // 0: up, 1: down, 2: left, 3: right
+    private String name;
     
-    private int speedX = 0;
-    private int speedY = 0;
+    private int speed = 0;
+    private int damage;
+    private int hp;
+    private int maxHp;
 
-    
-    private String direction = "right";
+    // collision
+    private Rectangle collisionBox;
+    private boolean[] collisionOn = new boolean[4]; // 1 = up, 2 = down, 3 = left, 4 = right check direction of
+    private int[] collisionTile = new int[4]; // 1 = up, 2 = down, 3 = left, 4 = right check tile number of collision
     private int colGap;
     private int rowGap;
-    private boolean[] collisionOn = new boolean[4]; // 1 = up, 2 = down, 3 = left, 4 = right check direction of collision
-    private int[] collisionTile = new int[4]; // 1 = up, 2 = down, 3 = left, 4 = right check tile number of collision
-    private Rectangle collisionBox;
+
     private boolean isAlive = true;
 
-    public Entity(GamePanel gp) {
+    public Entity(GamePanel gp, String name, int worldX, int worldY, int width, int height, Rectangle collisionBox, int speed, int damage, int hp, int maxHp,
+            boolean[] collisionOn,
+            int[] collisionTile) {
         this.gp = gp;
-        collisionBox = new Rectangle(0, 0, gp.tileSize/2, gp.tileSize/2); // Default size, can be adjusted
-        colGap = (gp.tileSize - collisionBox.width) / 2;
-        rowGap = (gp.tileSize - collisionBox.height) / 2;
-    }
-
-    public GamePanel getGp() {
-        return gp;
-    }
-
-    public void setGp(GamePanel gp) {
-        this.gp = gp;
-    }
-
-    public int getWorldX() {
-        return worldX;
-    }
-
-    public void setWorldX(int worldX) {
         this.worldX = worldX;
-    }
-
-    public int getWorldY() {
-        return worldY;
-    }
-
-    public void setWorldY(int worldY) {
         this.worldY = worldY;
+        this.width = width;
+        this.height = height;
+        this.collisionBox = collisionBox;
+        colGap = (width - collisionBox.width) / 2;
+        rowGap = (height - collisionBox.height) / 2;
+        this.speed = speed;
+        this.damage = damage;
+        this.hp = hp;
+        this.maxHp = maxHp;
+        this.isAlive = true;
+        this.name = name;
     }
 
     public int getScreenX() {
-        return screenX;
-    }
-
-    public void setScreenX(int screenX) {
-        this.screenX = screenX;
+        return worldX - gp.screenManagement.getScreenX() - width/2;
     }
 
     public int getScreenY() {
-        return screenY;
+        return worldY - gp.screenManagement.getScreenY() - height/2;
     }
 
-    public void setScreenY(int screenY) {
-        this.screenY = screenY;
+    public int getSpeed() {
+        return speed;
     }
 
-    public int getSpeedX() {
-        return speedX;
+    public void setSpeed(int speedX) {
+        this.speed = speedX;
     }
 
-    public void setSpeedX(int speedX) {
-        this.speedX = speedX;
-    }
-
-    public int getSpeedY() {
-        return speedY;
-    }
-
-    public void setSpeedY(int speedY) {
-        this.speedY = speedY;
-    }
-
-    public String getDirection() {
+    public int getDirection() {
         return direction;
     }
 
-    public void setDirection(String direction) {
+    public void setDirection(int direction) {
         this.direction = direction;
     }
 
@@ -108,6 +83,18 @@ public class Entity {
         this.rowGap = rowGap;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
+    public Rectangle getCollisionBox() {
+        return collisionBox;
+    }
+
     public boolean[] getCollisionOn() {
         return collisionOn;
     }
@@ -124,21 +111,59 @@ public class Entity {
         this.collisionTile[index] = collisionTile;
     }
 
-    public Rectangle getCollisionBox() {
-        return collisionBox;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setCollisionBox(Rectangle collisionBox) {
-        this.collisionBox = collisionBox;
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 
-    public boolean isAlive() {
-        return isAlive;
+    public int getHp() {
+        return hp;
     }
 
-    public void setAlive(boolean isAlive) {
-        this.isAlive = isAlive;
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
-    
+    public void damageHp(int damage) {
+        this.hp -= damage;
+        if (this.hp < 0) {
+            this.hp = 0;
+            this.isAlive = false;
+        }
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

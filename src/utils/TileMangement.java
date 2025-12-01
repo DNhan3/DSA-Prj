@@ -4,33 +4,48 @@ import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.InputStream;
-
+import java.awt.image.BufferedImage;
 import entity.Tile;
 import main.GamePanel;
 
 public class TileMangement {
+    private static TileMangement instance = null;
+
     private GamePanel gp;
 
     protected Tile[] tile;
     protected int[][] mapTileNum;
+    BufferedImage mapCache;
 
-    public TileMangement(GamePanel gp) {
+    private TileMangement(GamePanel gp) {
         this.gp = gp;
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
         loadMap("/res/maps/map1.txt");
+        System.out.println("Map loaded");
         loadTile();
+        System.out.println("Tiles loaded");
+        buildMapCache();
+        System.out.println("Map cache built");
+    }
+
+    public static TileMangement getInstance(GamePanel gp) {
+        if (instance == null) {
+            instance = new TileMangement(gp);
+        }
+        return instance;
     }
 
     private void loadTile() {
-        tile = new Tile[2];
-        tile[0] = new Tile(gp,0);
-        tile[1] = new Tile(gp,1);
+        tile = new Tile[3];
+        tile[0] = new Tile(gp, 0);
+        tile[1] = new Tile(gp, 1);
+        tile[2] = new Tile(gp, 2);
     }
 
     private void loadMap(String filename) {
         try {
             InputStream is = getClass().getResourceAsStream(filename);
-            
+
             if (is == null) {
                 throw new IllegalArgumentException("Map file not found: " + filename);
             }
@@ -56,22 +71,31 @@ public class TileMangement {
         }
     }
 
-    public void draw(Graphics2D g2d) {
-        int leftCol = Math.max(0, (gp.mainCharacter.getWorldX() - gp.screenWidth / 2) / gp.tileSize - 1);
-        int rightCol = Math.min(gp.maxWorldCol - 1, (gp.mainCharacter.getWorldX() + gp.screenWidth / 2) / gp.tileSize + 1);
-        int topRow = Math.max(0, (gp.mainCharacter.getWorldY() - gp.screenHeight / 2) / gp.tileSize - 1);
-        int bottomRow = Math.min(gp.maxWorldRow - 1, (gp.mainCharacter.getWorldY() + gp.screenHeight / 2) / gp.tileSize + 1);
+    public void buildMapCache() {
+        mapCache = new BufferedImage(gp.maxWorldCol * gp.tileSize, gp.maxWorldRow * gp.tileSize,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = mapCache.createGraphics();
 
-        for (int j = topRow; j <= bottomRow; j++) {
-            for (int i = leftCol; i <= rightCol; i++) {
-                int worldX = i * gp.tileSize;
-                int worldY = j * gp.tileSize;
-                int screenX = worldX - gp.mainCharacter.getWorldX() + gp.screenWidth / 2;
-                int screenY = worldY - gp.mainCharacter.getWorldY() + gp.screenHeight / 2;
+        for (int row = 0; row < gp.maxWorldRow; row++) {
+            for (int col = 0; col < gp.maxWorldCol; col++) {
+                int tileId = mapTileNum[col][row];
+                BufferedImage tileI = tile[tileId].getTileImage(); // tile image from sprite sheet
 
-                tile[mapTileNum[i][j]].draw(g2d, screenX, screenY);
+                g.drawImage(tileI, col * gp.tileSize, row * gp.tileSize, gp.tileSize, gp.tileSize, null);
             }
         }
+
     }
 
+    public void draw(Graphics2D g2d) {
+        g2d.drawImage(mapCache, -gp.screenManagement.getScreenX(), -gp.screenManagement.getScreenY(), null);
+    }
+
+    public int getMapTileNum(int x, int y) {
+        return mapTileNum[x][y];
+    }
+
+    public Tile getTile(int index) {
+        return tile[index];
+    }
 }
