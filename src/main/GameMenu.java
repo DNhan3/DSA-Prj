@@ -1,4 +1,5 @@
 package main;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,18 +32,10 @@ public class GameMenu extends JFrame {
         setVisible(true);
     }
 
-    private void startGame() {
+    public boolean startGame() {
         System.out.println("Starting game...");
         this.dispose();
-        GamePanel gamePanel = new GamePanel();
-        JFrame gameWindow = new JFrame("HCMIU Mario");
-        gameWindow.add(gamePanel);
-        gameWindow.pack();
-        gameWindow.setResizable(false);
-        gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameWindow.setLocationRelativeTo(null);
-        gameWindow.setVisible(true);
-        gamePanel.start();
+        return true;
     }
 
     private void showOptions() {
