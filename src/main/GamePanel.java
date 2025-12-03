@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 
 import inGameEntity.Player;
 import utils.CollisionChecker;
+import utils.CooldownManager;
 import utils.KeyHandler;
 import utils.ProjectileManager;
 import utils.CoordinateManager;
@@ -17,7 +18,6 @@ import utils.TileMangement;
 
 public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
-
     public KeyHandler keyHandler = KeyHandler.getInstance();
     public CoordinateManager mouseTrack = CoordinateManager.getInstance();
     public ScreenManagement screenManagement = ScreenManagement.getInstance(this);
@@ -26,20 +26,10 @@ public class GamePanel extends JPanel implements Runnable {
     public CollisionChecker collisionChecker = CollisionChecker.getInstance(this);
     public CrepsManager crepsManager = CrepsManager.getInstance(this);
     public ProjectileManager projectileManager = ProjectileManager.getInstance();
-    
-    public final int FPS = 30;
-    
-    public final int originalTileSize = 32;
-    public final int tileSize = originalTileSize*2;
-    public final int maxScreenCol = 20;
-    public final int maxScreenRow = 16;
-    public final int screenWidth = tileSize * maxScreenCol;
-    public final int screenHeight = tileSize * maxScreenRow;
-    public final int maxWorldCol = 50; // map
-    public final int maxWorldRow = 25; // map
+    public CooldownManager cooldownManager = CooldownManager.getInstance();
 
     public GamePanel() {
-        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        this.setPreferredSize(new Dimension(Constant.screenWidth, Constant.screenHeight));
         this.setDoubleBuffered(true);
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
@@ -52,7 +42,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     @Override
     public void run() {
-        double drawInterval = 1000000000.0 / FPS; // Assuming 60 FPS
+        double drawInterval = 1000000000.0 / Constant.FPS; // Assuming 60 FPS
         double nextDrawTime = System.nanoTime() + drawInterval;
 
         while (gameThread != null) {

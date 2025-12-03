@@ -11,7 +11,7 @@ public class Entity {
     private String name;
     
     private int speed = 0;
-    private int damage;
+    private int attackPower;
     private int hp;
     private int maxHp;
 
@@ -36,7 +36,7 @@ public class Entity {
         colGap = (width - collisionBox.width) / 2;
         rowGap = (height - collisionBox.height) / 2;
         this.speed = speed;
-        this.damage = damage;
+        this.attackPower = damage;
         this.hp = hp;
         this.maxHp = maxHp;
         this.isAlive = true;
@@ -111,12 +111,12 @@ public class Entity {
         this.collisionTile[index] = collisionTile;
     }
 
-    public int getDamage() {
-        return damage;
+    public int getAttackPower() {
+        return attackPower;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setAttackPower(int damage) {
+        this.attackPower = damage;
     }
 
     public int getHp() {
@@ -165,5 +165,14 @@ public class Entity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void takeDamage(int damage) {
+        this.hp -= damage;
+        if (this.hp <= 0) {
+            this.hp = 0;
+            this.isAlive = false;
+            System.out.println(this.name + " has been defeated.");
+        }
     }
 }

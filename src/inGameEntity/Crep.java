@@ -1,5 +1,6 @@
 package inGameEntity;
 
+import main.Constant;
 import main.GamePanel;
 import skills.CrepsAttack;
 
@@ -10,13 +11,16 @@ import java.awt.Rectangle;
 import entity.Entity;
 
 public class Crep extends Entity {
+    private GamePanel gp;
+    
     private boolean inAction = false;
 
     private CrepsAttack attack;
 
     public Crep(GamePanel gp, int worldX, int worldY) {
         super(gp, "Creps", worldX, worldY, 46, 46, new Rectangle(46, 46), 2, 5, 2, 2, new boolean[4], new int[4]);
-        this.attack = new CrepsAttack(gp, this, this.getDamage());
+        this.gp = gp;
+        this.attack = new CrepsAttack(gp, this, this.getAttackPower());
         this.setColGap(0);
         this.setRowGap(0);
     }
@@ -33,14 +37,14 @@ public class Crep extends Entity {
             if (!getCollisionOn()[1]) {
                 worldX += Math.min(getSpeed(), Math.abs(playerX - worldX));
             } else {
-                worldX = getCollisionTile()[1] * gp.tileSize + gp.tileSize - getWidth() / 2 + getColGap() - 1;
+                worldX = getCollisionTile()[1] * Constant.tileSize + Constant.tileSize - getWidth() / 2 + getColGap() - 1;
             }
         } else if (worldX > playerX) {
             // Move left
             if (!getCollisionOn()[0]) {
                 worldX -= Math.min(getSpeed(), Math.abs(worldX - playerX));
             } else {
-                worldX = getCollisionTile()[0] * gp.tileSize + getWidth() / 2 - getColGap();
+                worldX = getCollisionTile()[0] * Constant.tileSize + getWidth() / 2 - getColGap();
             }
         }
         if (worldY < playerY) {
@@ -48,14 +52,14 @@ public class Crep extends Entity {
             if (!getCollisionOn()[3]) {
                 worldY += Math.min(getSpeed(), Math.abs(playerY - worldY));
             } else {
-                worldY = getCollisionTile()[3] * gp.tileSize + gp.tileSize - getHeight() / 2 + getRowGap() - 1;
+                worldY = getCollisionTile()[3] * Constant.tileSize + Constant.tileSize - getHeight() / 2 + getRowGap() - 1;
             }
         } else if (worldY > playerY) {
             // Move up
             if (!getCollisionOn()[2]) {
                 worldY -= Math.min(getSpeed(), Math.abs(worldY - playerY));
             } else {
-                worldY = getCollisionTile()[2] * gp.tileSize + getHeight() / 2 - getRowGap();
+                worldY = getCollisionTile()[2] * Constant.tileSize + getHeight() / 2 - getRowGap();
             }
         }
 
@@ -91,8 +95,8 @@ public class Crep extends Entity {
         manageAction();
 
         if (!inAction) {
-            if (Math.abs(worldX - gp.mainCharacter.worldX) < gp.tileSize * 1.2 &&
-                    Math.abs(worldY - gp.mainCharacter.worldY) < gp.tileSize * 1.2 &&
+            if (Math.abs(worldX - gp.mainCharacter.worldX) < Constant.tileSize * 1.2 &&
+                    Math.abs(worldY - gp.mainCharacter.worldY) < Constant.tileSize * 1.2 &&
                     attack.getCooldown() == 0) {
                 attack.execute();
                 attack.update();

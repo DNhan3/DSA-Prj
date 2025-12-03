@@ -2,6 +2,7 @@ package skills;
 
 import entity.Entity;
 import inGameEntity.Crep;
+import main.Constant;
 import main.GamePanel;
 import utils.ScreenManagement;
 
@@ -81,20 +82,20 @@ public class Projectile {
 
     public void checkIfWalled() {
         // Implement wall collision logic here
-        for (int i = screenM.getScreenX() / gp.tileSize; i < gp.maxWorldCol; i++) {
-            for (int j = screenM.getScreenY() / gp.tileSize; j < gp.maxWorldRow; j++) {
+        for (int i = screenM.getScreenX() / Constant.tileSize; i < Constant.maxWorldCol; i++) {
+            for (int j = screenM.getScreenY() / Constant.tileSize; j < Constant.maxWorldRow; j++) {
                 if (expired)
                     return;
-                if (i < 0 || j < 0 || i >= gp.maxWorldCol || j >= gp.maxWorldRow) {
+                if (i < 0 || j < 0 || i >= Constant.maxWorldCol || j >= Constant.maxWorldRow) {
                     continue;
                 }
                 int tileNum = gp.tileM.getMapTileNum(i, j);
                 if (gp.tileM.getTile(tileNum).isCollision()) {
                     // Simple bounding box collision detection
-                    int tileX = i * gp.tileSize;
-                    int tileY = j * gp.tileSize;
-                    if (cor[0] < tileX + gp.tileSize - 10 && cor[0] > tileX - 10 &&
-                            cor[1] < tileY + gp.tileSize - 10 && cor[1] > tileY - 10) { // Assuming projectile size 5x5
+                    int tileX = i * Constant.tileSize;
+                    int tileY = j * Constant.tileSize;
+                    if (cor[0] < tileX + Constant.tileSize - 10 && cor[0] > tileX - 10 &&
+                            cor[1] < tileY + Constant.tileSize - 10 && cor[1] > tileY - 10) { // Assuming projectile size 5x5
                         expired = true;
                         return;
                     }

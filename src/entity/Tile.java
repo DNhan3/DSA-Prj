@@ -1,18 +1,17 @@
 package entity;
 import java.awt.Graphics2D;
-import main.GamePanel;
+
+import main.Constant;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Tile{
-    private GamePanel gp;
     private int tileNum;
     private BufferedImage tileImage;
     private boolean collision = false;
 
-    public Tile(GamePanel gp, int tileNum) {
-        this.gp = gp;
+    public Tile(int tileNum) {
         this.tileNum = tileNum;
         if (tileNum == 1) {
             collision = true;
@@ -32,15 +31,7 @@ public class Tile{
     }
 
     public void draw(Graphics2D g2d, int x, int y) {
-        g2d.drawImage(tileImage, x, y, gp.tileSize, gp.tileSize, null);
-    }
-
-    public GamePanel getGp() {
-        return gp;
-    }
-
-    public void setGp(GamePanel gp) {
-        this.gp = gp;
+        g2d.drawImage(tileImage, x, y, Constant.tileSize, Constant.tileSize, null);
     }
 
     public int getTileNum() {

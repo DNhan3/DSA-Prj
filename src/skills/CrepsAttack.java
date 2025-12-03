@@ -2,6 +2,7 @@ package skills;
 
 import inGameEntity.Crep;
 import inGameEntity.Player;
+import main.Constant;
 import main.GamePanel;
 import java.awt.Rectangle;
 
@@ -46,17 +47,17 @@ public class CrepsAttack {
 
     public void updatePosition(int direction) {
         if (direction == 0) { // left
-            worldX = caster.worldX - caster.getWidth() / 2 - gp.tileSize;
-            worldY = caster.worldY - caster.getHeight() / 2 - gp.tileSize / 2;
+            worldX = caster.worldX - caster.getWidth() / 2 - Constant.tileSize;
+            worldY = caster.worldY - caster.getHeight() / 2 - Constant.tileSize / 2;
         } else if (direction == 1) { // right
-            worldX = caster.worldX + caster.getWidth() / 2 + gp.tileSize - gp.tileSize;
-            worldY = caster.worldY - caster.getHeight() / 2 - gp.tileSize / 2;
+            worldX = caster.worldX + caster.getWidth() / 2 + Constant.tileSize - Constant.tileSize;
+            worldY = caster.worldY - caster.getHeight() / 2 - Constant.tileSize / 2;
         } else if (direction == 2) { // up
-            worldX = caster.worldX - caster.getWidth() / 2 - gp.tileSize / 2;
-            worldY = caster.worldY - caster.getHeight() / 2 - gp.tileSize;
+            worldX = caster.worldX - caster.getWidth() / 2 - Constant.tileSize / 2;
+            worldY = caster.worldY - caster.getHeight() / 2 - Constant.tileSize;
         } else if (direction == 3) { // down
-            worldX = caster.worldX - caster.getWidth() / 2 - gp.tileSize / 2;
-            worldY = caster.worldY + caster.getHeight() / 2 + gp.tileSize - gp.tileSize;
+            worldX = caster.worldX - caster.getWidth() / 2 - Constant.tileSize / 2;
+            worldY = caster.worldY + caster.getHeight() / 2 + Constant.tileSize - Constant.tileSize;
         }
     }
 
@@ -83,9 +84,9 @@ public class CrepsAttack {
         updatePosition(direction);
         updateScreenPosition(direction);
         if (direction == 2 || direction == 3)
-            attackArea.setFrame(worldX, worldY, gp.tileSize * 2, gp.tileSize);
+            attackArea.setFrame(worldX, worldY, Constant.tileSize * 2, Constant.tileSize);
         else
-            attackArea.setFrame(worldX, worldY, gp.tileSize, gp.tileSize * 2);
+            attackArea.setFrame(worldX, worldY, Constant.tileSize, Constant.tileSize * 2);
         checkAttack();
         cooldown = 60; // Cooldown of 60 frames
     }
@@ -114,9 +115,9 @@ public class CrepsAttack {
             return;
         g2.setColor(java.awt.Color.BLUE);
         if (direction == 2 || direction == 3)
-            g2.fillRect(screenX, screenY, gp.tileSize * 2, gp.tileSize);
+            g2.fillRect(screenX, screenY, Constant.tileSize * 2, Constant.tileSize);
         else
-            g2.fillRect(screenX, screenY, gp.tileSize, gp.tileSize * 2);
+            g2.fillRect(screenX, screenY, Constant.tileSize, Constant.tileSize * 2);
     }
 
     public Crep getCaster() {

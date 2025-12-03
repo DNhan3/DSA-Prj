@@ -1,11 +1,12 @@
 package utils;
 
 import entity.Entity;
+import main.Constant;
 import main.GamePanel;
 
 public class CollisionChecker {
-    private static CollisionChecker instance = null;
     private final GamePanel gp;
+    private static CollisionChecker instance = null;
 
     private CollisionChecker(GamePanel gp) {
         this.gp = gp;
@@ -30,18 +31,18 @@ public class CollisionChecker {
         int entityXend = entityXStart + entity.getCollisionBox().width - 1;
         int entityYend = entityYStart + entity.getCollisionBox().height - 1;
 
-        int entityLeftCol = entityXStart / gp.tileSize;
-        int entityRightCol = entityXend / gp.tileSize;
-        int entityTopRow = entityYStart / gp.tileSize;
-        int entityBottomRow = entityYend / gp.tileSize;
+        int entityLeftCol = entityXStart / Constant.tileSize;
+        int entityRightCol = entityXend / Constant.tileSize;
+        int entityTopRow = entityYStart / Constant.tileSize;
+        int entityBottomRow = entityYend / Constant.tileSize;
 
         int tileNum1;
         int tileNum2;
 
-        int nextLeftCol = (entityXStart - speed) / gp.tileSize;
-        int nextRightCol = (entityXend + speed) / gp.tileSize;
-        int nextTopRow = (entityYStart - speed) / gp.tileSize;
-        int nextBottomRow = (entityYend + speed) / gp.tileSize;
+        int nextLeftCol = (entityXStart - speed) / Constant.tileSize;
+        int nextRightCol = (entityXend + speed) / Constant.tileSize;
+        int nextTopRow = (entityYStart - speed) / Constant.tileSize;
+        int nextBottomRow = (entityYend + speed) / Constant.tileSize;
 
         // Left collision
         tileNum1 = gp.tileM.mapTileNum[nextLeftCol][entityTopRow];
