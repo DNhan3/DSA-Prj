@@ -8,8 +8,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-import entity.Entity;
-
 public class Crep extends Entity {
     private GamePanel gp;
 

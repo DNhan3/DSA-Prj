@@ -3,9 +3,12 @@ package utils;
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import inGameEntity.Tile;
+
 import java.io.InputStream;
 import java.awt.image.BufferedImage;
-import entity.Tile;
+
 import main.Constant;
 import main.GamePanel;
 

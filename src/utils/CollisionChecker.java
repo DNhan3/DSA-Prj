@@ -1,6 +1,6 @@
 package utils;
 
-import entity.Entity;
+import inGameEntity.Entity;
 import main.Constant;
 import main.GamePanel;
 

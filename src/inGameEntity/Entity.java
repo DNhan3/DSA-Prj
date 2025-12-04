@@ -1,4 +1,4 @@
-package entity;
+package inGameEntity;
 
 import main.GamePanel;
 import java.awt.Rectangle;

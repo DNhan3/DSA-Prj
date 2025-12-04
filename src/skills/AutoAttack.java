@@ -1,7 +1,8 @@
 package skills;
 
 import java.awt.Point;
-import entity.Entity;
+
+import inGameEntity.Entity;
 import main.GamePanel;
 
 public class AutoAttack extends Skill {
