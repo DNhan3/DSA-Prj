@@ -5,7 +5,6 @@ import main.GamePanel;
 import skills.CrepsAttack;
 
 import javax.imageio.ImageIO;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -14,11 +13,10 @@ public class Crep extends Entity {
     private GamePanel gp;
 
     private boolean inAction = false;
-
     private CrepsAttack attack;
 
     public Crep(GamePanel gp, int worldX, int worldY) {
-        super(gp, "Creps", worldX, worldY, 46, 46, new Rectangle(46, 46), 2, 5, 2, 2, new boolean[4], new int[4]);
+        super(gp, "Creps", worldX, worldY, 46, 46, new Rectangle(46, 46), 2, 1, 2, 2, new boolean[4], new int[4]);
         this.gp = gp;
         this.attack = new CrepsAttack(gp, this, this.getAttackPower());
         this.setColGap(0);
@@ -41,23 +39,18 @@ public class Crep extends Entity {
         }
     }
     public void findPlayer(Player player) {
-        // // refresh collision info for current position
-        // gp.collisionChecker.checkTile(this);
+
         int playerX = player.worldX;
         int playerY = player.worldY;
-        // System.out.println("Creps at (" + worldX + ", " + worldY + ") is finding
-        // player at (" + playerX + ", " + playerY + ")");
         if (worldX < playerX) {
             // Move right
             setDirection(3);
             if (!getCollisionOn()[1]) {
                 worldX += Math.min(getSpeed(), Math.abs(playerX - worldX));
             } else {
-                worldX = getCollisionTile()[1] * Constant.tileSize + Constant.tileSize - getWidth() / 2 + getColGap()
-                        - 1;
+                worldX = getCollisionTile()[1] * Constant.tileSize + Constant.tileSize - getWidth() / 2 + getColGap()- 1;
             }
         } else if (worldX > playerX) {
-            // Move left
             setDirection(2);
             if (!getCollisionOn()[0]) {
                 worldX -= Math.min(getSpeed(), Math.abs(worldX - playerX));
@@ -66,7 +59,6 @@ public class Crep extends Entity {
             }
         }
         if (worldY < playerY) {
-            // Move down
             setDirection(1);
             if (!getCollisionOn()[3]) {
                 worldY += Math.min(getSpeed(), Math.abs(playerY - worldY));
@@ -75,7 +67,6 @@ public class Crep extends Entity {
                         - 1;
             }
         } else if (worldY > playerY) {
-            // Move up
             setDirection(0);
             if (!getCollisionOn()[2]) {
                 worldY -= Math.min(getSpeed(), Math.abs(worldY - playerY));
@@ -84,15 +75,6 @@ public class Crep extends Entity {
             }
         }
 
-    }
-
-    public void knockBack(int length, int dx, int dy) {
-        float distance = (float) Math.sqrt(dx * dx + dy * dy);
-        dx = (int) ((dx / distance) * length);
-        dy = (int) ((dy / distance) * length);
-
-        worldX += dx;
-        worldY += dy;
     }
 
     public void takeDamage(int damage) {
@@ -108,38 +90,21 @@ public class Crep extends Entity {
         }
     }
 
-    public boolean isInFrame(){
-        int screenX = getScreenX();
-        int screenY = getScreenY();
-        return screenX + getWidth() > 0 && screenX < Constant.screenWidth &&
-                screenY + getHeight() > 0 && screenY < Constant.screenHeight;
-    }
-
-    public void drawHealthBar(Graphics g, int x, int y, int currentHP, int maxHP) {
-        int width = 46;
-        int height = 6;
-
-        float hpPercent = (float) (currentHP+1) / (maxHP+1);
-        if (hpPercent < 0)
-            hpPercent = 0;
-
-        // Background bar4
-        g.setColor(Color.darkGray);
-        g.fillRect(x, y, width, height);
-
-        // Health portion
-        g.setColor(Color.red);
-        g.fillRect(x, y, (int) (width * hpPercent), height);
-
-        // Outline
-        g.setColor(Color.black);
-        g.drawRect(x, y, width, height);
-    }
-
     public void update() {
         if (!isAlive()) {
             return;
         }
+
+        spriteCounter++;
+        if (spriteCounter > 15) {
+            if (spriteNum == 1) {
+                spriteNum = 2;
+            } else if (spriteNum == 2) {
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
+
         attack.decreaseCooldown();
         manageAction();
 

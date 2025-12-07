@@ -14,7 +14,7 @@ public class ScreenManagement {
     }
     private GamePanel gp;
 
-    private float lerp = 0.03f; // smoothing amount
+    private float lerp = 0.1f; // smoothing amount
     private float screenX, screenY;
 
     private ScreenManagement(GamePanel gp) {
@@ -25,7 +25,7 @@ public class ScreenManagement {
 
     public void update() {
         screenX+=(gp.player.worldX-screenX-Constant.screenWidth/2 + Constant.tileSize)*lerp;
-        screenY+=(gp.player.worldY-screenY-Constant.screenHeight/2 + Constant.tileSize*2)*lerp;
+        screenY+=(gp.player.worldY-screenY-Constant.screenHeight/2 + Constant.tileSize)*lerp;
     }
 
     public int getScreenX() {

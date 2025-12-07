@@ -12,7 +12,7 @@ import utils.CooldownManager;
 import utils.KeyHandler;
 import utils.ProjectileManager;
 import utils.CoordinateManager;
-import utils.CrepsManager;
+import utils.EnemiesManager;
 import utils.ScreenManagement;
 import utils.StatueManager;
 import utils.TileMangement;
@@ -25,7 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
     public TileMangement tileM = TileMangement.getInstance(this);
     public Player player = Player.getInstance(this);
     public CollisionChecker collisionChecker = CollisionChecker.getInstance(this);
-    public CrepsManager crepsManager = CrepsManager.getInstance(this);
+    public EnemiesManager enemiesManager = EnemiesManager.getInstance(this);
     public ProjectileManager projectileManager = ProjectileManager.getInstance();
     public CooldownManager cooldownManager = CooldownManager.getInstance();
     public StatueManager statueManager = StatueManager.getInstance(this);
@@ -35,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
+        this.setBackground(java.awt.Color.BLACK);
     }
 
     public void start() {
@@ -68,7 +69,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         screenManagement.update();
         player.update(keyHandler);
-        crepsManager.updateCreps();
+        enemiesManager.updateEnemies();
         projectileManager.updateProjectiles();
     }
 
@@ -79,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         tileM.draw(g2);
         player.draw(g2);
-        crepsManager.drawCreps(g2);
+        enemiesManager.drawEnemies(g2);
         projectileManager.drawProjectiles(g2);
         statueManager.drawStatues(g2);
         Toolkit.getDefaultToolkit().sync();

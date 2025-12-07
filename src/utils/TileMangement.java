@@ -84,12 +84,23 @@ public class TileMangement {
         for (int row = 0; row < Constant.maxWorldRow; row++) {
             for (int col = 0; col < Constant.maxWorldCol; col++) {
                 int tileId = mapTileNum[col][row];
-                if (tileId == 2){
+                if (tileId == 2) {
                     StatueManager.getInstance(gp).addStatue(new Point(col, row));
                 }
                 BufferedImage tileI = tile[tileId].getTileImage(); // tile image from sprite sheet
-
-                g.drawImage(tileI, col * Constant.tileSize, row * Constant.tileSize, Constant.tileSize, Constant.tileSize, null);
+                if (tileId == 0) {
+                    int subTileSize = tileI.getWidth() / 2;
+                    int[][] positions = { { 0, 0 }, { subTileSize, 0 }, { 0, subTileSize },
+                            { subTileSize, subTileSize } };
+                    int idx = (int) (Math.random() * 4);
+                    int subX = positions[idx][0];
+                    int subY = positions[idx][1];
+                    BufferedImage subImg = tileI.getSubimage(subX, subY, subTileSize, subTileSize);
+                    g.drawImage(subImg, col * Constant.tileSize, row * Constant.tileSize, Constant.tileSize, Constant.tileSize, null);
+                    continue;
+                }
+                g.drawImage(tileI, col * Constant.tileSize, row * Constant.tileSize, Constant.tileSize,
+                        Constant.tileSize, null);
             }
         }
 

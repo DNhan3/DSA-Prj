@@ -1,6 +1,5 @@
 package skills;
 
-import entity.Crep;
 import entity.Entity;
 import main.Constant;
 import main.GamePanel;
@@ -64,14 +63,16 @@ public class Projectile {
     }
 
     public void checkIfHitEntity() {
-        for (Crep crep : gp.crepsManager.getCreps()) {
+        for (Entity crep : gp.enemiesManager.getEnemies()) {
             if (expired)
                 return;
             // Simple bounding box collision detection
+            if (!crep.isAlive())
+                continue;
             int entityX = crep.worldX;
             int entityY = crep.worldY;
-            if (cor[0] >= entityX - 23 && cor[0] <= entityX + 23 &&
-                    cor[1] >= entityY - 23 && cor[1] <= entityY + 23) {
+            if (cor[0] >= entityX - crep.getWidth()/2 && cor[0] <= entityX + crep.getWidth()/2 &&
+                    cor[1] >= entityY - crep.getHeight()/2 && cor[1] <= entityY + crep.getHeight()/2) {
                 expired = true;
                 crep.takeDamage(damage);
                 crep.knockBack(20, cor[2] - cor[0], cor[3] - cor[1]);
@@ -105,9 +106,8 @@ public class Projectile {
 
 
     public void draw(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(Color.CYAN);
         g.fillOval(cor[0] - screenM.getScreenX(), cor[1] - screenM.getScreenY(), 15, 15); // Example
-    
     }
 
     public void setCaster(Entity caster) {

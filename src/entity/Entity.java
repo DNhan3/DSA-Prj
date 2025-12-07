@@ -1,6 +1,9 @@
 package entity;
 
+import main.Constant;
 import main.GamePanel;
+
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
@@ -10,7 +13,7 @@ public class Entity {
     private int width, height;
     private int direction = 0; // 0: up, 1: down, 2: left, 3: right
     private String name;
-    
+
     private int speed = 0;
     private int attackPower;
     private int hp;
@@ -19,7 +22,6 @@ public class Entity {
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
     public int spriteCounter = 0;
     public int spriteNum = 1;
-
 
     // collision
     private Rectangle collisionBox;
@@ -30,7 +32,8 @@ public class Entity {
 
     private boolean isAlive = true;
 
-    public Entity(GamePanel gp, String name, int worldX, int worldY, int width, int height, Rectangle collisionBox, int speed, int damage, int hp, int maxHp,
+    public Entity(GamePanel gp, String name, int worldX, int worldY, int width, int height, Rectangle collisionBox,
+            int speed, int damage, int hp, int maxHp,
             boolean[] collisionOn,
             int[] collisionTile) {
         this.gp = gp;
@@ -49,12 +52,60 @@ public class Entity {
         this.name = name;
     }
 
+    public void revive() {
+        this.hp = this.maxHp;
+        this.isAlive = true;
+    }
+
+    public void update() {
+        // Default implementation does nothing
+    }
+
+    public void draw(java.awt.Graphics g2) {
+        // Default implementation does nothing
+    }
+
+    public void drawHealthBar(java.awt.Graphics g, int x, int y, int currentHP, int maxHP) {        
+        int width = this.width;
+        int height = 6;
+        
+        float hpPercent = (float) (currentHP + 1) / (maxHP + 1);
+        if (hpPercent < 0)
+            hpPercent = 0;
+        
+        // Background bar4
+        g.setColor(new Color(20, 20, 20)); // Darker than grey
+        g.fillRect(x - 3, y - 3, width + 6, height + 6);
+        
+        // Health portion
+        g.setColor(Color.RED);
+        if (name.equals("Player")) g.setColor(Color.CYAN);
+        g.fillRect(x, y, (int) (width * hpPercent), height);
+
+    }
+
+    public void knockBack(int length, int dx, int dy) {
+        float distance = (float) Math.sqrt(dx * dx + dy * dy);
+        dx = (int) ((dx / distance) * length);
+        dy = (int) ((dy / distance) * length);
+
+        worldX += dx;
+        worldY += dy;
+    }
+
+    public boolean isInFrame() {
+        int screenX = getScreenX();
+        int screenY = getScreenY();
+        return screenX + getWidth() > 0 && screenX < Constant.screenWidth &&
+                screenY + getHeight() > 0 && screenY < Constant.screenHeight;
+    }
+
     public int getScreenX() {
-        return worldX - gp.screenManagement.getScreenX() - width/2;
+        return worldX - gp.screenManagement.getScreenX() - width / 2;
     }
 
     public int getScreenY() {
-        return worldY - gp.screenManagement.getScreenY() - height/2;
+        return worldY - gp.screenManagement.getScreenY() - height / 2;
     }
 
     public int getSpeed() {

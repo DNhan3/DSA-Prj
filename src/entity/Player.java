@@ -30,7 +30,7 @@ public class Player extends Entity {
     
     private Player(GamePanel gp) {
         super(gp, "Player", (int) (Constant.tileSize * 1.5), (int) (Constant.tileSize * 1.5),
-        Constant.tileSize, Constant.tileSize, new Rectangle(48, 48), 5, 1, 5, 5,
+        Constant.tileSize, Constant.tileSize, new Rectangle(48, 48), 4, 1, 10, 10,
         new boolean[4], new int[4]);
         this.gp = gp;
         autoAttackSkill = new AutoAttack(gp);
@@ -68,7 +68,7 @@ public class Player extends Entity {
     }
 
     public void checkCollisionWithEnemies() {
-        for (Crep enemy : gp.crepsManager.getCreps()) {
+        for (Entity enemy : gp.enemiesManager.getEnemies()) {
             if (!enemy.isAlive()) {
                 continue;
             }
@@ -90,8 +90,8 @@ public class Player extends Entity {
         }
     }
 
-    public void takeDamage(Crep enemy) {
-        // Placeholder for getting damaged logic
+    public void takeDamage(Entity enemy) {
+        this.damageHp(enemy.getAttackPower());
         knockBack(Constant.tileSize / 2, this.worldX - enemy.worldX, this.worldY - enemy.worldY);
     }
 
@@ -157,6 +157,8 @@ public class Player extends Entity {
     }
 
     public void update(KeyHandler keyH) {
+        if (!isAlive())
+            return;
         if (stuntDurations > 0) {
             stuntDurations--;
             return;
@@ -168,7 +170,7 @@ public class Player extends Entity {
         ticksController();
         // sprite animation
         spriteCounter++;
-        if (spriteCounter > 12) {
+        if (spriteCounter > 15) {
             if (spriteNum == 1) {
                 spriteNum = 2;
             } else if (spriteNum == 2) {
@@ -179,6 +181,8 @@ public class Player extends Entity {
     }
 
     public void draw(Graphics2D g2) {
+        if (!isAlive())
+            return;
         BufferedImage image = null;
         switch (getDirection()) {
             case 0:
@@ -214,6 +218,7 @@ public class Player extends Entity {
                 }
                 break;
         }
+        drawHealthBar(g2, getScreenX(), getScreenY() - 10, getHp(), getMaxHp());
         g2.drawImage(image, getScreenX(), getScreenY(), Constant.tileSize, Constant.tileSize, null);
     }
 

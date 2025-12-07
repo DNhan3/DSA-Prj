@@ -3,15 +3,16 @@ package skills;
 import main.GamePanel;
 
 public class HomingOrb {
-
+    private GamePanel gp;
     public int x, y;
-    public int speed = 2;
+    public int speed = 4;
     public int damage = 5;
     public boolean active = true;
 
-    public HomingOrb(int x, int y) {
+    public HomingOrb(int x, int y, GamePanel gp) {
         this.x = x;
         this.y = y;
+        this.gp = gp;
     }
 
     public void update(GamePanel gp) {
@@ -26,9 +27,15 @@ public class HomingOrb {
         y += (dy / len) * speed;
 
         // nổ khi đến gần
-        if (Math.abs(x - px) < 10) {
+        if (len < 10) {
             gp.player.damageHp(damage);
+            gp.player.knockBack(20, (int)dx, (int)dy);
             active = false;
         }
+    }
+
+    public void draw(java.awt.Graphics g2) {
+        g2.setColor(java.awt.Color.MAGENTA);
+        g2.fillOval(x - 8 - gp.screenManagement.getScreenX(), y - 8 - gp.screenManagement.getScreenY(), 16, 16);
     }
 }
