@@ -24,6 +24,10 @@ public class Crep extends Entity {
         loadSprites();
     }
 
+    public Crep(GamePanel gp) {
+        this(gp, 0, 0);
+    }
+
     public void loadSprites() {
         try{
             up1 = ImageIO.read(getClass().getResource("/res/monster/miasma_mage/miasma-up-1.png"));
@@ -115,7 +119,6 @@ public class Crep extends Entity {
                 findPlayer(Player.getInstance(gp));
             }
         }
-        gp.collisionChecker.checkTile(this);
     }
 
     public void draw(Graphics g2) {

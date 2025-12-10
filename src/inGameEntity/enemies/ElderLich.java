@@ -29,6 +29,10 @@ public class ElderLich extends Entity {
         loadSprites();
     }
 
+    public ElderLich(GamePanel gp) {
+        this(gp, 0, 0);
+    }
+
     private void loadSprites() {
         try {
             left1 = javax.imageio.ImageIO

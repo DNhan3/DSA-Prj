@@ -24,6 +24,10 @@ public class Warbeast extends Entity {
         loadSprites();
     }
 
+    public Warbeast(GamePanel gp) {
+        this(gp, 0, 0);
+    }
+
     private void loadSprites() {
         try {
             up1 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/war_beast/beast-up-1.png"));

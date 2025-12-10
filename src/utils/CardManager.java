@@ -24,7 +24,8 @@ public class CardManager {
             new Card("Speed", "Increase speed by 1", 1),
             new Card("Attack", "Increase ATK by 1", 1),
             new Card("AttackSpeed", "Decrease Auto Attack cooldown by 0.1s", 1),
-            new Card("EXP Scale", "Increase EXP gain by 0.5x", 5)
+            new Card("EXP Scale", "Increase EXP gain by 1.5x", 5),
+            new Card("HP Regen", "Increase HP Regen rate", 25)
         };
         for (int i = 0; i < 3; i++) {
             cards[i] = pool[(int) (Math.random() * pool.length)];
@@ -74,7 +75,7 @@ public class CardManager {
         }
     }
 
-    public void checkCardClick(int mouseX, int mouseY) {
+    public boolean checkCardClick(int mouseX, int mouseY) {
         int cardW = Constant.cardWidth;
         int cardH = Constant.cardHeight;
 
@@ -85,9 +86,11 @@ public class CardManager {
                 int x = startX + i * (cardW + Constant.cardGap);
                 if (mouseX >= x && mouseX <= x + cardW) {
                     applyCardEffect(cards[i]);
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     public void applyCardEffect(Card card) {
@@ -107,6 +110,8 @@ public class CardManager {
             case "EXP Scale":
                 Player.getInstance().increaseExpScale(card.bonus*0.1f);
                 break;
+            case "HP Regen":
+                Player.getInstance().decreaseHpRegenCooldown(card.bonus);
             default:
                 break;
         }

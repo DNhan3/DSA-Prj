@@ -29,10 +29,12 @@ public class CardChoosingState {
         if (MouseManager.getInstance().clicked) {
             int mouseX = MouseManager.getInstance().mouseX;
             int mouseY = MouseManager.getInstance().mouseY;
-            cardManager.checkCardClick(mouseX, mouseY);
             MouseManager.getInstance().clicked = false; // Reset click state
-            cardsGenerated = false; // Prepare for next card generation 
-            gp.gameState = GamePanel.GameState.PLAYING;            
+            if (cardManager.checkCardClick(mouseX, mouseY)){
+                cardsGenerated = false; // Prepare for next card generation 
+                gp.gameState = GamePanel.GameState.PLAYING;            
+            }
+            
         }
     }
 

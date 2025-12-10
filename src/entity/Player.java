@@ -36,11 +36,11 @@ public class Player extends Entity {
     private Rectangle hitBox = new Rectangle(0, 0, 64, 64);
     public AutoAttack autoAttackSkill;
     private float expScale = 1;
-    private int exp = 600;
+    private int exp = 10000;
     private int level = 1;
     private int expToNextLevel = 100;
-    private int hpRegenCooldown = 4000; // in ticks
-    private int hpRegen = 1; // HP per second
+    private int hpRegenCooldown = 1000; // in ticks
+    private int hpRegen = 1;
 
     private Player(GamePanel gp) {
         super(gp, "Player", (int) (Constant.tileSize * 1.5), (int) (Constant.tileSize * 1.5),
@@ -142,6 +142,7 @@ public class Player extends Entity {
     }
 
     public void ticksController() {
+        System.out.println(ticks);
         ticks++;
         autoAttack();
         if (ticks > (int)1e6) {
@@ -201,9 +202,7 @@ public class Player extends Entity {
     }
 
     public void regenHP() {
-        System.out.println("Ticks: " + ticks);
         if (ticks % hpRegenCooldown == 0) {
-            System.out.println("Regenerating HP");
             this.healHp(hpRegen);
         }
     }
@@ -330,6 +329,18 @@ public class Player extends Entity {
         if (this.exp >= this.expToNextLevel) {
             this.exp -= this.expToNextLevel;
             levelUp();
+            if (this.level > 5){
+                if (this.level % 5 == 0) gp.gameState = GamePanel.GameState.CARD_CHOOSING;
+                if (this.level > 20){
+                    if (this.level % 10 == 0) gp.gameState = GamePanel.GameState.CARD_CHOOSING;
+                    if (this.level > 40){
+                        if (this.level % 20 == 0) gp.gameState = GamePanel.GameState.CARD_CHOOSING;
+                    }
+                    return true;
+                }
+                return true;
+            }
+
             gp.gameState = GamePanel.GameState.CARD_CHOOSING;
             return true;
         }
@@ -346,12 +357,12 @@ public class Player extends Entity {
 
     public void levelUp() {
         this.level++;
-        if (this.level % 5 == 0) {
+        if (this.level % 7 == 0) {
             gp.enemiesManager.enemiesGrowth();
             System.out.println("Enemies have grown stronger!");
         }
         // freeze the game for player to choose stat increase
-        this.expToNextLevel = level * 100;
+        this.expToNextLevel = level * level * 100;
     }
 
     public void attackPowerUp(int bonus) {
@@ -369,5 +380,9 @@ public class Player extends Entity {
 
     public void attackSpeedUp(int bonus) {
         this.autoAttackSkill.decreaseCooldown(bonus);
+    }
+
+    public void decreaseHpRegenCooldown(int amount) {
+        this.hpRegenCooldown = (int) (hpRegenCooldown * amount * 0.01f);
     }
 }

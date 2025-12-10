@@ -30,6 +30,10 @@ public class MiasmaMage extends Entity {
         loadSprites();
     }
 
+    public MiasmaMage(GamePanel gp) {
+        this(gp, 0, 0);
+    }
+
     private void loadSprites() {
         try {
             up1 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/miasma_mage/miasma-up-1.png"));

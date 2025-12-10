@@ -28,16 +28,26 @@ public class BossManticore extends Entity {
         loadSprites();
     }
 
+    public BossManticore(GamePanel gp) {
+        this(gp, 0, 0);
+    }
+
     private void loadSprites() {
         try {
             up1 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-up-1.png"));
             up2 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-up-2.png"));
-            down1 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-down-1.png"));
-            down2 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-down-2.png"));
-            left1 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-left-1.png"));
-            left2 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-left-2.png"));
-            right1 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-right-1.png"));
-            right2 = javax.imageio.ImageIO.read(getClass().getResource("/res/monster/boss_manticore/manticore-right-2.png"));
+            down1 = javax.imageio.ImageIO
+                    .read(getClass().getResource("/res/monster/boss_manticore/manticore-down-1.png"));
+            down2 = javax.imageio.ImageIO
+                    .read(getClass().getResource("/res/monster/boss_manticore/manticore-down-2.png"));
+            left1 = javax.imageio.ImageIO
+                    .read(getClass().getResource("/res/monster/boss_manticore/manticore-left-1.png"));
+            left2 = javax.imageio.ImageIO
+                    .read(getClass().getResource("/res/monster/boss_manticore/manticore-left-2.png"));
+            right1 = javax.imageio.ImageIO
+                    .read(getClass().getResource("/res/monster/boss_manticore/manticore-right-1.png"));
+            right2 = javax.imageio.ImageIO
+                    .read(getClass().getResource("/res/monster/boss_manticore/manticore-right-2.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,7 +65,7 @@ public class BossManticore extends Entity {
         int px = gp.player.worldX;
         int py = gp.player.worldY;
 
-        if (px < worldX){
+        if (px < worldX) {
             worldX -= getSpeed();
             setDirection(2);
         }

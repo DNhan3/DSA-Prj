@@ -15,6 +15,7 @@ import inGameEntity.enemies.Warbeast;
 import main.Constant;
 
 public class EnemiesManager {
+    GamePanel gp;
     private static EnemiesManager instance = null;
     private Random random = new Random();
 
@@ -28,30 +29,52 @@ public class EnemiesManager {
     private ArrayList<Entity> enemies = new ArrayList<>();
 
     private EnemiesManager(GamePanel gp) {
-        // Initialize enemies
-        for (int i = 0; i < 10; i++) {
-            int x = random.nextInt(Constant.maxWorldCol * Constant.tileSize);
-            int y = random.nextInt(Constant.maxWorldRow * Constant.tileSize);
-            enemies.add(new Crep(gp, x, y));
+        this.gp = gp;
+        addEnemy(Crep.class, 5);
+        addEnemy(MiasmaMage.class, 5);
+        addEnemy(ElderLich.class, 5);
+        addEnemy(Warbeast.class, 1);
+        addEnemy(BossManticore.class, 1);
+    }
+
+    public void addEnemy(Class<? extends Entity> enemyClass, int count) {
+        for (int i = 0; i < count; i++) {
+            try {
+                Entity enemy = enemyClass.getDeclaredConstructor(GamePanel.class).newInstance(gp);
+                enemy.setRandomPosition();
+                enemies.add(enemy);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        for (int i = 0; i < 5; i++) {
-            int x = random.nextInt(Constant.maxWorldCol * Constant.tileSize);
-            int y = random.nextInt(Constant.maxWorldRow * Constant.tileSize);
-            enemies.add(new MiasmaMage(gp, x, y));
-        }
-        for (int i = 0; i < 3; i++) {
-            int x = random.nextInt(Constant.maxWorldCol * Constant.tileSize);
-            int y = random.nextInt(Constant.maxWorldRow * Constant.tileSize);
-            enemies.add(new Warbeast(gp, x, y));
-        }
-        // Add Bosses
-        enemies.add(new ElderLich(gp, 1000, 1000));
-        enemies.add(new BossManticore(gp, 1500, 1500));
     }
 
     public void enemiesGrowth() {
         for (Entity enemy : enemies) {
             enemy.growth();
+        }
+
+        addEnemy(Crep.class, 5);
+        addEnemy(MiasmaMage.class, 5);
+        addEnemy(ElderLich.class, 5);
+        addEnemy(Warbeast.class, 1);
+        addEnemy(BossManticore.class, 1);
+    }
+
+    public void proccessEnemiesOutOfBound() {
+        for (Entity enemy : enemies) {
+            if (enemy.worldX < 1.5 * Constant.tileSize) {
+                enemy.worldX = (int) (1.5 * Constant.tileSize);
+            }
+            if (enemy.worldY < 1.5 * Constant.tileSize) {
+                enemy.worldY = (int) (1.5 * Constant.tileSize);
+            }
+            if (enemy.worldX > (Constant.maxWorldCol - 1.5) * Constant.tileSize) {
+                enemy.worldX = (int) ((Constant.maxWorldCol - 1.5) * Constant.tileSize);
+            }
+            if (enemy.worldY > (Constant.maxWorldRow - 1.5) * Constant.tileSize) {
+                enemy.worldY = (int) ((Constant.maxWorldRow - 1.5) * Constant.tileSize);
+            }
         }
     }
 
@@ -59,8 +82,8 @@ public class EnemiesManager {
         for (Entity enemy : enemies) {
             if (!enemy.isInFrame() && !enemy.isAlive()) {
                 if (!enemy.isAlive()) {
-                    enemy.worldX = random.nextInt(Constant.maxWorldCol * Constant.tileSize);
-                    enemy.worldY = random.nextInt(Constant.maxWorldRow * Constant.tileSize);
+                    enemy.worldX = 1 + random.nextInt(Constant.maxWorldCol * Constant.tileSize - 1);
+                    enemy.worldY = 1 + random.nextInt(Constant.maxWorldRow * Constant.tileSize - 1);
                     enemy.revive();
                     continue;
                 }
@@ -69,6 +92,7 @@ public class EnemiesManager {
             if (!enemy.isInFrame()) {
                 continue;
             }
+            proccessEnemiesOutOfBound();
             enemy.update();
         }
     }

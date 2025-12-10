@@ -6,6 +6,7 @@ import main.GamePanel;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 public class Entity {
     public GamePanel gp;
@@ -18,6 +19,7 @@ public class Entity {
     private int attackPower;
     private int hp;
     private int maxHp;
+    private double scale = 1.0;
 
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
     public int spriteCounter = 0;
@@ -47,12 +49,18 @@ public class Entity {
         colGap = (width - collisionBox.width) / 2;
         rowGap = (height - collisionBox.height) / 2;
         this.speed = speed;
-        this.attackPower = damage;
-        this.hp = hp;
-        this.maxHp = maxHp;
+        this.attackPower = (int) (damage * scale);
+        this.hp = (int) (hp * scale);
+        this.maxHp = (int) (maxHp * scale);
         this.isAlive = true;
         this.name = name;
         this.expValue = expValue;
+    }
+
+    public void setRandomPosition() {
+        Random random = new Random();
+        this.worldX = 1 + random.nextInt(Constant.maxWorldCol * Constant.tileSize - 1);
+        this.worldY = 1 + random.nextInt(Constant.maxWorldRow * Constant.tileSize - 1);
     }
 
     public void revive() {
@@ -62,9 +70,7 @@ public class Entity {
 
     public void growth() {
         int plevel = gp.player.getLevel();
-        this.maxHp += plevel/2;
-        this.hp += plevel/2;
-        this.attackPower += plevel / 3;
+        this.scale = 1 + (plevel - 1) * 0.5;
     }
 
     public void update() {
