@@ -4,10 +4,12 @@ import entity.Entity;
 import main.Constant;
 import main.GamePanel;
 import utils.ScreenManagement;
+import utils.Sound;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+
 
 public class Projectile {
     private GamePanel gp;
@@ -18,6 +20,7 @@ public class Projectile {
     private boolean expired = false;
     private int range; // max distance the projectile can travel
     private int[] cor = new int[4];
+    private Sound hitSound = new Sound();
 
     public Projectile(GamePanel gp, Point target, Entity caster, int damage, int speed, int range) {
         this.gp = gp;
@@ -30,6 +33,8 @@ public class Projectile {
         cor[1] = caster.worldY;
         cor[2] = target.x;
         cor[3] = target.y;
+        hitSound.loadSound("src/res/Sounds/hit.wav");
+
     }
     
     public int getTravelledDistance() {
@@ -63,6 +68,7 @@ public class Projectile {
     }
 
     public void checkIfHitEntity() {
+//        hitSound.playWithRandomPitch();
         for (Entity enemy : gp.enemiesManager.getEnemies()) {
             if (expired)
                 return;

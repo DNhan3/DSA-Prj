@@ -4,16 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dba014d4-8f0f-45d5-b984-6044f5a1a1dc" name="Changes" comment="">
+    <list default="true" id="dba014d4-8f0f-45d5-b984-6044f5a1a1dc" name="Changes" comment="update theme sound and projectile sound">
+      <change afterPath="$PROJECT_DIR$/src/utils/Sound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Crep.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Crep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Statue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Statue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Crep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Crep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Statue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Statue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/BossManticore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/BossManticore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/ElderLich.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/ElderLich.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/MiasmaMage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/MiasmaMage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/Warbeast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/Warbeast.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GameMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/maps/map1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/maps/map1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile0.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/AutoAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/AutoAttack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/CrepsAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/CrepsAttack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/EnemyProjectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/EnemyProjectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/HomingOrb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/HomingOrb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/Projectile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/CollisionChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/CollisionChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/CrepsManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/MouseTrack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/ScreenManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/ScreenManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/TileMangement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/TileMangement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skills/AutoAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skills/AutoAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skills/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skills/Projectile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -29,12 +77,15 @@
     &quot;assignee&quot;: &quot;ngqynhanh&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/DNhan3/HCMIU-OOP-Project.git&quot;,
-    &quot;accountId&quot;: &quot;e1d6a6d6-5ec2-407f-ad73-0bbdb70a955c&quot;
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="3ed06861-4a24-48c8-85e1-89fcfd817670" />
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DNhan3/DSA-Prj.git",
+    "accountId": "3ed06861-4a24-48c8-85e1-89fcfd817670"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -50,8 +101,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "addsprite",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -62,7 +114,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -107,8 +159,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
       </set>
     </attachedChunks>
   </component>
@@ -122,6 +174,9 @@
       <updated>1741857156828</updated>
       <workItem from="1765068268080" duration="42000" />
       <workItem from="1765069775576" duration="2632000" />
+      <workItem from="1765465691897" duration="2000" />
+      <workItem from="1765465709230" duration="478000" />
+      <workItem from="1765466207396" duration="3054000" />
     </task>
     <servers />
   </component>
@@ -138,6 +193,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update theme sound and projectile sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="update theme sound and projectile sound" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
