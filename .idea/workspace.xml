@@ -4,52 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dba014d4-8f0f-45d5-b984-6044f5a1a1dc" name="Changes" comment="update theme sound and projectile sound">
-      <change afterPath="$PROJECT_DIR$/src/utils/Sound.java" afterDir="false" />
+    <list default="true" id="dba014d4-8f0f-45d5-b984-6044f5a1a1dc" name="Changes" comment="feat: Add sound effects for player actions and background music">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Crep.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Crep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Statue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Statue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/BossManticore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/BossManticore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/ElderLich.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/ElderLich.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/MiasmaMage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/MiasmaMage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/Warbeast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/inGameEntity/enemies/Warbeast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GameMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GameMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/main/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/maps/map1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/maps/map1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/left/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/monster/right/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile0.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/res/tiles/tile1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/AutoAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/AutoAttack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/CrepsAttack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/CrepsAttack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/EnemyProjectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/EnemyProjectile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/HomingOrb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/HomingOrb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/skills/Projectile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/CollisionChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/CollisionChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/CrepsManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/MouseTrack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/ScreenManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/ScreenManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/TileMangement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/utils/TileMangement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/skills/AutoAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skills/AutoAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/skills/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skills/Projectile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,17 +22,21 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="sounds-update" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;ngqynhanh&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN"
   }
-}</component>
+}]]></component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="3ed06861-4a24-48c8-85e1-89fcfd817670" />
   </component>
@@ -152,6 +112,8 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Activation" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Activation" />
         <item itemvalue="Application.Activation" />
       </list>
     </recent_temporary>
@@ -176,8 +138,25 @@
       <workItem from="1765069775576" duration="2632000" />
       <workItem from="1765465691897" duration="2000" />
       <workItem from="1765465709230" duration="478000" />
-      <workItem from="1765466207396" duration="3054000" />
+      <workItem from="1765466207396" duration="3281000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: Add sound effects for player actions and background music">
+      <option name="closed" value="true" />
+      <created>1765469329837</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469329837</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Add sound effects for player actions and background music">
+      <option name="closed" value="true" />
+      <created>1765469358684</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469358684</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +175,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update theme sound and projectile sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="update theme sound and projectile sound" />
+    <MESSAGE value="feat: Add sound effects for player actions and background music" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add sound effects for player actions and background music" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
