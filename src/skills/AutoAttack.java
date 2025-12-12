@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import entity.Entity;
 import main.GamePanel;
+import utils.Sound;
 
 public class AutoAttack extends Skill {
     public AutoAttack(GamePanel gp) {

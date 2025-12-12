@@ -4,37 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dba014d4-8f0f-45d5-b984-6044f5a1a1dc" name="Changes" comment="">
+    <list default="true" id="dba014d4-8f0f-45d5-b984-6044f5a1a1dc" name="Changes" comment="feat: Add sound effects for player actions and background music">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Statue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HCMIU-OOP-Project/entity/Statue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Crep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Crep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Statue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Statue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="sounds-update" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;ngqynhanh&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/DNhan3/HCMIU-OOP-Project.git&quot;,
-    &quot;accountId&quot;: &quot;e1d6a6d6-5ec2-407f-ad73-0bbdb70a955c&quot;
+}]]></component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="3ed06861-4a24-48c8-85e1-89fcfd817670" />
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DNhan3/DSA-Prj.git",
+    "accountId": "3ed06861-4a24-48c8-85e1-89fcfd817670"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -50,8 +61,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "addsprite",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -62,7 +74,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -100,6 +112,8 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Activation" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Activation" />
         <item itemvalue="Application.Activation" />
       </list>
     </recent_temporary>
@@ -107,8 +121,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
       </set>
     </attachedChunks>
   </component>
@@ -122,7 +136,27 @@
       <updated>1741857156828</updated>
       <workItem from="1765068268080" duration="42000" />
       <workItem from="1765069775576" duration="2632000" />
+      <workItem from="1765465691897" duration="2000" />
+      <workItem from="1765465709230" duration="478000" />
+      <workItem from="1765466207396" duration="3281000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: Add sound effects for player actions and background music">
+      <option name="closed" value="true" />
+      <created>1765469329837</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469329837</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Add sound effects for player actions and background music">
+      <option name="closed" value="true" />
+      <created>1765469358684</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469358684</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +172,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update theme sound and projectile sound" />
+    <MESSAGE value="feat: Add sound effects for player actions and background music" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add sound effects for player actions and background music" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

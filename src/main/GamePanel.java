@@ -6,16 +6,8 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import entity.Player;
 import java.awt.Toolkit;
-import utils.CollisionChecker;
-import utils.CooldownManager;
-import utils.KeyHandler;
-import utils.MouseManager;
-import utils.ProjectileManager;
-import utils.CoordinateManager;
-import utils.EnemiesManager;
-import utils.ScreenManagement;
-import utils.StatueManager;
-import utils.TileMangement;
+
+import utils.*;
 
 public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
@@ -31,6 +23,8 @@ public class GamePanel extends JPanel implements Runnable {
     public CooldownManager cooldownManager = CooldownManager.getInstance();
     public StatueManager statueManager = StatueManager.getInstance(this);
     public CardChoosingState cardChoosingState = CardChoosingState.getInstance(this);
+    private Sound backgroundMusic;
+
 
     public enum GameState {
         PLAYING,
@@ -47,12 +41,16 @@ public class GamePanel extends JPanel implements Runnable {
         this.addMouseListener(mouseManager);
         this.setFocusable(true);
         this.setBackground(java.awt.Color.BLACK);
+        backgroundMusic = new Sound();
+        backgroundMusic.loadSound("src/res/Sounds/bgsound.wav");
+        backgroundMusic.playLoop();
     }
 
     public void start() {
         gameThread = new Thread(this);
         gameThread.start();
     }
+
 
     @Override
     public void run() {

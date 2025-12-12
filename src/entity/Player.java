@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import main.Constant;
 import main.GamePanel;
 import utils.KeyHandler;
+import utils.Sound;
 import skills.AutoAttack;
 
 import javax.imageio.ImageIO;
@@ -16,6 +17,8 @@ import javax.imageio.ImageIO;
 public class Player extends Entity {
     private GamePanel gp;
     private static Player instance = null;
+    private Sound shootSound = new Sound();
+
 
     public static Player getInstance(GamePanel gp) {
         if (instance == null) {
@@ -49,6 +52,9 @@ public class Player extends Entity {
         this.gp = gp;
         autoAttackSkill = new AutoAttack(gp);
         getPlayerSprite();
+
+        shootSound.loadSound("src/res/Sounds/sound5.wav");
+
     }
 
     private void handleMovementInput(KeyHandler keyH) {
@@ -138,6 +144,7 @@ public class Player extends Entity {
         if (gp.cooldownManager.available(gp.player.autoAttackSkill)) {
             gp.player.autoAttackSkill.activate(this, target);
             gp.cooldownManager.start(gp.player.autoAttackSkill);
+            shootSound.playWithRandomPitch();  // Play sound when shooting
         }
     }
 
