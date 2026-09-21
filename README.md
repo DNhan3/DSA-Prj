@@ -1,18 +1,33 @@
-## Getting Started
+# Java DSA Game
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A simple Java game developed as a **Data Structures and Algorithms (DSA) project**.
 
-## Folder Structure
+## Description
 
-The workspace contains two folders by default, where:
+This project was created to apply DSA concepts in a practical game environment while practicing Java programming and object-oriented programming.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🎮 Gameplay
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+The game is a **one-life action game** where the player fights monsters to survive and become stronger.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+* ⚔️ Fight monsters to gain experience.
+* 📈 Level up to increase your strength.
+* 🃏 After leveling up, choose **one random stat card** to upgrade your character.
+* 💀 If you die, the run ends and you must start again.
+* 🔥 The goal is to survive as long as possible and become powerful enough to defeat stronger monsters.
 
-## Dependency Management
+## Technologies
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+* Java
+* Data Structures & Algorithms
+* Object-Oriented Programming
+
+## How to Run
+
+1. Clone the repository.
+2. Open the project in a Java IDE.
+3. Run the main class.
+
+## Project
+
+This project was developed for educational purposes as part of a DSA course.
